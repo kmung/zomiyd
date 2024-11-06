@@ -38,21 +38,21 @@ Ensure you have the following installed on your development machine:
 
 To start the development server, run:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    # or
+    bun dev
+    ```
 
 ## Branching and Pull Requests
 
 ### 1. Creating a Branch for Each New Feature
 
-    Always create a new branch for each feature or bug fix you are working on. Never work directly on the main branch.
+Always create a new branch for each feature or bug fix you are working on. Never work directly on the main branch.
 
     ```bash
     git checkout -b feature-name
@@ -60,7 +60,7 @@ bun dev
 
 ### 2. Committing Changes
 
-    Commit new changes with a descriptive message.
+Commit new changes with a descriptive message.
 
     ```bash
     git add .
@@ -75,11 +75,12 @@ bun dev
 
 ### 4. Submitting a Pull Request
 
-    Go to the repository on GitHub and you will see a prompt to create a pull request for your recently pushed branch. Follow these steps:
-    - Click on the "Compare & pull request" button.
-    - Add a title and description for your pull request.
-    - Ensure the base branch is main and the compare branch is your feature branch.
-    - Click on "Create pull request".
+Go to the repository on GitHub and you will see a prompt to create a pull request for your recently pushed branch. Follow these steps:
+
+- Click on the "Compare & pull request" button.
+- Add a title and description for your pull request.
+- Ensure the base branch is main and the compare branch is your feature branch.
+- Click on "Create pull request".
 
 ## Project Structure
 
