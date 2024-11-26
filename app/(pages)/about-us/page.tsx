@@ -104,9 +104,18 @@ const page: React.FC = () => {
         <div className='max-w-4xl mx-auto px-4'>
           <h1 className="text-3xl font-bold mb-4 text-center">Our Leadership Team</h1>
           <p className="text-lg text-gray-700 mb-4">YD’s Leadership Team is comprised of the Office of the Director, a Management Team, and a Committee Chair. We also have an auxiliary branch which acts to provide additional support as needed. Together, our Leadership Team support and empower all members of YD to succeed in their activities.​</p>
-          <AvatarCards title="Office of the Director" team={officeOfDirector} />
-          <AvatarCards title="Management Team" team={managementTeam} />
-          <AvatarCards title="Committees" team={committees} />
+          <AvatarCards 
+            title="Office of the Director" 
+            team={officeOfDirector} 
+          />
+          <AvatarCards 
+            title="Management Team" 
+            team={managementTeam} 
+          />
+          <AvatarCards 
+            title="Committees" 
+            team={committees} 
+          />
         </div>
       </section>
     </div>
