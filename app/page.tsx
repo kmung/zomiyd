@@ -1,10 +1,10 @@
+
 import Image from "next/image";
 import Link from "next/link";
+import Hero from "./components/Hero";
 import VideoBox from "./components/VideoBox";
-import HeroCoverImg from "@/public/images/herocover.png";
 import AboutUsImg from "@/public/images/img4.png";
 import ProgramImg from "@/public/images/volunteers.jpg";
-import Button from "./components/Button";
 import AnimateCounters from "./components/AnimateCounter";
 
 interface Counter {
@@ -25,10 +25,6 @@ export default function Home() {
     { end: 40, text: 'Outside Volunteers' }
   ];
 
-const scrollToNextSection = () => {
-    document.getElementById('video-section')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
 const programs: Program[] = [
     { name: 'Youth Leadership Program', description: 'Empowering young leaders through training and mentorship.', image: ProgramImg },
     { name: 'Community Outreach', description: 'Engaging with the community to provide support and resources.', image: ProgramImg },
@@ -37,17 +33,7 @@ const programs: Program[] = [
 
   return (
     <main>
-      <div className="relative z-10 text-white h-screen flex flex-col items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${HeroCoverImg})`}}>
-        <div className="text-center max-w-2xl">
-            <h1 className="text-4xl font-bold mb-4">Welcome to Zomi YD</h1>
-            <h2 className="text-2xl mb-4">Zomi Picing | Siamsin Picing</h2>
-        </div>
-        <button onClick={scrollToNextSection} className="absolute bottom-10 animate-bounce shadow-lg text-white focus:outline-none bg-blue-secondary rounded-full p-2">
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-        </button>
-      </div>
+      <Hero />
       <section id="video-section" className='py-8'>
         <div className='container mx-auto bg-yellow-secondary'>
             <VideoBox src='https://www.youtube.com/embed/PLuHDYufJRM?si=VeGebn5-6uru1Ns5' title='YD Theme Song' />
@@ -68,7 +54,7 @@ const programs: Program[] = [
                 <p className="text-lg font-semibold text-gray-700 mb-4">Zomi Youth Development is part of a non-profit youth organization that aims to support and uplift the Zomi youths around the world.</p>
                 <p className="text-lg text-gray-700 mb-4">Our slogan is “Zomi Picing, Siamsin Picing!” Perfectly capturing the shared vision that our member body has.</p>
                 <Link href="/about-us">
-                    <Button className='bg-sky-500'>Learn More About YD</Button>
+                    <button className='bg-sky-500'>Learn More About YD</button>
                 </Link>
             </div>
         </div>
@@ -87,7 +73,11 @@ const programs: Program[] = [
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {programs.map((program, index) => (
                     <div key={index} className="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105">
-                        <img src={program.image} alt={program.name} className="w-full h-48 object-cover rounded-lg mb-4"/>
+                        <Image
+                        src={program.image}
+                        alt={program.name}
+                        className="w-full h-48 object-cover rounded-lg mb-4"
+                        />
                         <h3 className="text-2xl font-semibold mb-2">{program.name}</h3>
                         <p className="text-gray-700">{program.description}</p>
                     </div>
