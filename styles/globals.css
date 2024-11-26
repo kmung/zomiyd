@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 body {
+  @apply font-sans;
   scroll-behavior: smooth;
   background-color: white;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
