@@ -5,7 +5,11 @@ interface CoverProps {
 
 function Cover({ title, backgroundImage}: CoverProps) {
   return (
-    <div className="h-[90vh] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url(${backgroundImage.src})` }}>
+    <div className="h-[90vh] bg-cover bg-center flex items-center justify-center" 
+        style={{
+           backgroundImage: `url(${backgroundImage.src})`,
+           backgroundPosition: 'center top',
+            }}>
         <h1 className="text-4xl font-bold text-white">{title}</h1>
     </div>
   );

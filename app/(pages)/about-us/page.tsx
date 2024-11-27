@@ -5,6 +5,12 @@ import teamImage from '@/public/images/team.jpg';
 import Cover from '../../components/Cover';
 import AvatarCards from '../../components/AvatarCards';
 import Image from 'next/image';
+import dal from '@/public/images/teams/dal.jpeg';
+import khaiboih from '@/public/images/teams/khai_boih.jpeg';
+import marysiam from '@/public/images/teams/mary_siam.png';
+import muankim from '@/public/images/teams/muan_kim.jpeg';
+import mungno from '@/public/images/teams/mungno.jpeg';
+import siamnu from '@/public/images/teams/siam_nu.jpeg';
 
 const page: React.FC = () => {
   const missionPoints = [
@@ -18,26 +24,56 @@ const page: React.FC = () => {
   ];
 
   const officeOfDirector = [
-    { name: 'John Doe', role: 'Executive Director', image: teamImage },
-    { name: 'Jane Smith', role: 'Assistant Director', image: teamImage },
-    { name: 'Jane Smith', role: 'Assistant Director', image: teamImage },
-    { name: 'Jane Smith', role: 'Assistant Director', image: teamImage },
-    { name: 'Sarah Davis', role: 'Committee Chair', image: teamImage },
+    { name: 'Mary Siam', role: 'Executive Director', image: marysiam },
+    { name: 'Tg. Dal', role: 'Assistant Director', image: dal },
+    { name: 'Tg. Thomas Mung', role: 'Assistant Director', image: teamImage },
+    { name: 'Lia Siam Nu', role: 'Assistant Director', image: siamnu },
   ];
 
-  const managementTeam = [
-    { name: 'Emily Johnson', role: 'Department Manager', image: teamImage },
-    { name: 'Emily Johnson', role: 'Department Manager', image: teamImage },
-    { name: 'Michael Brown', role: 'Team Manager', image: teamImage },
-    { name: 'Michael Brown', role: 'Team Manager', image: teamImage },
-    { name: 'Michael Brown', role: 'Team Manager', image: teamImage },
-    { name: 'Michael Brown', role: 'Team Manager', image: teamImage },
+  const educationTeam = [
+    { name: 'Khai Boih', role: 'Manager', image: khaiboih },
+    { name: 'Nuam Boih', role: 'Assistant Manager', image: teamImage },
+    { name: 'Khai No', role: 'IT Course Lecturer', image: teamImage },
+    { name: 'Kam', role: 'IT Course Lead', image: teamImage },
+    { name: 'Mua Muang', role: 'IT Course Lead', image: teamImage },
+    { name: 'Dr. Tuang, PhD', role: 'Mentorship Program Mentor', image: teamImage },
+    { name: 'San Seng', role: 'Mentorship Program Lead', image: teamImage },
+    { name: 'Pum Ciin', role: 'Mentorship Program Lead Assistant', image: teamImage },
+    { name: 'Dim Dim', role: 'ELL Lead', image: teamImage },
+    { name: 'Nuam Boih', role: 'ELL Lead Assistant', image: teamImage },
+    { name: 'Siam Nu', role: 'Profession Program Lead', image: teamImage },
   ];
 
-  const committees = [
-    { name: 'Sarah Davis', role: 'Committee Chair', image: teamImage },
-    { name: 'Sarah Davis', role: 'Committee Chair', image: teamImage },
-    { name: 'Sarah Davis', role: 'Committee Chair', image: teamImage },
+  const trainingTeam = [
+    { name: 'Thomas Mung', role: 'Manager', image: teamImage },
+  ]
+
+  const researchTeam = [
+    { name: 'Juni Saw Sawm', role: 'Manager', image: teamImage },
+    { name: 'Dal Thang', role: 'Lead', image: dal },
+  ]
+
+  const zollTeam = [
+    { name: 'Mung No', role: 'Manager', image: mungno },
+  ]
+
+  const creativeTeam = [
+    { name: 'Tung Pi', role: 'Manager', image: teamImage },
+    { name: 'Sang Nu', role: 'Lead', image: teamImage },
+  ]
+
+  const financeCommittee = [
+    { name: 'Niang Hoih', role: 'Manager', image: teamImage },
+    { name: 'Khai Boih', role: 'Fundraising Project Lead', image: teamImage },
+    { name: 'Muan Kim', role: 'Payroll & Taxes Specialist', image: muankim },
+    { name: 'Nuam Boih', role: 'Treasurer Lead', image: teamImage },
+    { name: 'Nua Nuam', role: 'Accountant Lead', image: teamImage },
+  ];
+
+  const hrCommittee = [
+    { name: 'Dal Thang', role: 'Manager', image: dal },
+    { name: 'Mary Siam', role: 'Assistant', image: marysiam },
+    { name: 'Dim Nem', role: 'Work Hour Lead', image: teamImage },
   ];
 
   return (
@@ -55,13 +91,13 @@ const page: React.FC = () => {
         <div className='max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8'>
           <div>
             <h1 className="text-3xl font-bold mb-4">Our Mission</h1>
-            <p className="text-lg font-semibold text-gray-700 mb-4">To educate Zomi youths in basic education respective to their age, and encourage them to acquire extra curricular involvements in the Zomi communities.</p>
+            <p className="text-lg font-semibold mb-4">To educate Zomi youths in basic education respective to their age, and encourage them to acquire extra curricular involvements in the Zomi communities.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <p className="text-l underline font-semibold mb-2">Zomi Picing</p>
                 <ul className="list-disc list-inside space-y-2">
                   {missionPoints.map((point, index) => (
-                    <li key={index} className="text-lg text-gray-700">{point}</li>
+                    <li key={index} className="text-lg">{point}</li>
                   ))}
                 </ul>
               </div>
@@ -69,7 +105,7 @@ const page: React.FC = () => {
                 <p className="text-l underline font-semibold mb-2">Siamsin Picing</p>
                 <ul className="list-disc list-inside space-y-2">
                   {additionalPoints.map((point, index) => (
-                    <li key={index} className="text-lg text-gray-700">{point}</li>
+                    <li key={index} className="text-lg">{point}</li>
                   ))}
                 </ul>
               </div>
@@ -109,12 +145,32 @@ const page: React.FC = () => {
             team={officeOfDirector} 
           />
           <AvatarCards 
-            title="Management Team" 
-            team={managementTeam} 
+            title="Education Department" 
+            team={educationTeam} 
           />
           <AvatarCards 
-            title="Committees" 
-            team={committees} 
+            title="Training Department" 
+            team={trainingTeam}
+          />
+          <AvatarCards 
+            title="Research Department" 
+            team={researchTeam}
+          />
+          <AvatarCards 
+            title="Zomi Language & Literature Department" 
+            team={zollTeam}
+          />
+          <AvatarCards 
+            title="Creative Department" 
+            team={creativeTeam}
+          />
+          <AvatarCards 
+            title="Finance Committee" 
+            team={financeCommittee} 
+          />
+          <AvatarCards 
+            title="Human Resources Committee" 
+            team={hrCommittee}
           />
         </div>
       </section>
