@@ -39,7 +39,7 @@ const Header: React.FC = () => {
                             alt='ZYD logo' 
                             width={160}
                             height={160}
-                            className='h-16 md:h-24 lg:h-40 transition-transform duration-300'
+                            className= 'h-12 md:h-20 lg:h-36 transition-transform duration-300'
                         />
                     </Link>
                 </div>
