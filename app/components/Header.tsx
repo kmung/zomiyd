@@ -60,7 +60,6 @@ const Header: React.FC = () => {
                     <Link href='/' className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-white text-blue-primary' : 'bg-blue-primary text-white'}`}>Home</Link>
                     <Link href='/about-us' className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-white text-blue-primary' : 'bg-blue-primary text-white'}`}>About Us</Link>
                     <Link href='/what-we-do' className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-white text-blue-primary' : 'bg-blue-primary text-white'}`}>What We Do</Link>
-                    <Link href='/contact-us' className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-white text-blue-primary' : 'bg-blue-primary text-white'}`}>Contact Us</Link>
                 </nav>
             </div>
             {menuOpen && (
@@ -69,7 +68,6 @@ const Header: React.FC = () => {
                         <Link href='/' onClick={toggleMenu} className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-sky-800 text-white' : 'bg-white text-sky-800'}`}>Home</Link>
                         <Link href='/about-us' onClick={toggleMenu} className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-sky-800 text-white' : 'bg-white text-sky-800'}`}>About Us</Link>
                         <Link href='/what-we-do' onClick={toggleMenu} className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-sky-800 text-white' : 'bg-white text-sky-800'}`}>What We Do</Link>
-                        <Link href='/contact-us' onClick={toggleMenu} className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-sky-800 text-white' : 'bg-white text-sky-800'}`}>Contact Us</Link>
                     </nav>
                 </div>
             )}
