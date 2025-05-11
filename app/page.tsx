@@ -19,6 +19,8 @@ interface Program {
 }
 
 export default function Home() {
+  const themeSongYoutubeLink = 'https://www.youtube.com/embed/PLuHDYufJRM?si=VeGebn5-6uru1Ns5';
+
   const counters: Counter[] = [
     { end: 100, text: 'YD Workforce' },
     { end: 3, text: 'Countries Respresented' },
@@ -35,8 +37,8 @@ const programs: Program[] = [
     <main>
       <Hero />
       <section id="video-section" className='py-8'>
-        <div className='container mx-auto bg-yellow-secondary'>
-            <VideoBox src='https://www.youtube.com/embed/PLuHDYufJRM?si=VeGebn5-6uru1Ns5' title='YD Theme Song' />
+        <div className='container mx-auto'>
+            <VideoBox src={themeSongYoutubeLink}/>
         </div>
       </section>
       <AnimateCounters counters={counters} />
