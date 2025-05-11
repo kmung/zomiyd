@@ -81,7 +81,7 @@ const page: React.FC = () => {
       <Cover title='Who We Are' backgroundImage={coverImage} />
       <section className="py-8 bg-white">
         <div className='max-w-4xl mx-auto px-4'>
-          <h1 className="text-3xl font-bold mb-4 text-center">About Us Overview</h1>
+          <h1 className="text-3xl font-bold mb-4 text-center">About Us</h1>
           <h2 className="text-xl font-semibold mb-4 text-center">We are change agents</h2>
           <p className="text-lg text-gray-700 mb-4">Zomi Youth Development is part of a non-profit youth organization that aims to support and uplift the Zomi youths around the world. We are a collective of students, scholars, and activists with a shared interest in positively influencing the many Zomi communities scattered across the globe.</p>
           <p className="text-lg text-gray-700 mb-4">Our work focuses on the holistic development of Zomi youths scattered across the globe due to the Zomi Diaspora. We exist to empower each other and to be the vehicle that drives the positive development of Zomi communities.</p>
