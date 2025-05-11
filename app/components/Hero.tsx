@@ -1,7 +1,6 @@
 'use client';
 
 import HeroCoverImg from "@/public/images/herocover.png";
-import Image from "next/image";
 
 export default function Hero() {
 
