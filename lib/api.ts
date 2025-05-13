@@ -1,0 +1,1 @@
+// Strapi fetchers (blogs, media, newsletters, etc.)
