@@ -13,18 +13,18 @@ import mungno from '@/public/images/teams/mungno.jpeg';
 import siamnu from '@/public/images/teams/siam_nu.jpeg';
 
 const page: React.FC = () => {
-  const missionPoints = [
+  const missionPointsZomiPicing = [
     'Develop generations of Zomi youths who are passionate about contributing their time, talents, and skills toward the social, economic, and political advancement of the Zomi people.',
     'Raise up leaders who value and uphold the rule of law, committed to justice and ethical leadership.',
   ];
 
-  const additionalPoints = [
+  const missionPointsSiamsinPicing = [
     'Equip students with knowledge and skills appropriate for their age and educational level.',
     'Encourage a mindset of lifelong learning, curiosity, and personal growth.',
   ];
 
   const officeOfDirector = [
-    { name: 'Mary Siam', role: 'Executive Director', image: marysiam },
+    { name: 'Lia Mary Siam', role: 'Executive Director', image: marysiam },
     { name: 'Tg. Dal', role: 'Assistant Director', image: dal },
     { name: 'Tg. Thomas Mung', role: 'Assistant Director', image: teamImage },
     { name: 'Lia Siam Nu', role: 'Assistant Director', image: siamnu },
@@ -32,48 +32,34 @@ const page: React.FC = () => {
 
   const educationTeam = [
     { name: 'Khai Boih', role: 'Manager', image: khaiboih },
-    { name: 'Nuam Boih', role: 'Assistant Manager', image: teamImage },
-    { name: 'Khai No', role: 'IT Course Lecturer', image: teamImage },
-    { name: 'Kam', role: 'IT Course Lead', image: teamImage },
-    { name: 'Mua Muang', role: 'IT Course Lead', image: teamImage },
-    { name: 'Dr. Tuang, PhD', role: 'Mentorship Program Mentor', image: teamImage },
-    { name: 'San Seng', role: 'Mentorship Program Lead', image: teamImage },
-    { name: 'Pum Ciin', role: 'Mentorship Program Lead Assistant', image: teamImage },
-    { name: 'Dim Dim', role: 'ELL Lead', image: teamImage },
-    { name: 'Nuam Boih', role: 'ELL Lead Assistant', image: teamImage },
-    { name: 'Siam Nu', role: 'Profession Program Lead', image: teamImage },
+    { name: 'Nuam Boih', role: 'Assistant', image: teamImage },
   ];
 
   const trainingTeam = [
     { name: 'Thomas Mung', role: 'Manager', image: teamImage },
+    { name: 'Tawi Tawi', role: 'Assistant', image: teamImage }
   ]
 
   const researchTeam = [
-    { name: 'Juni Saw Sawm', role: 'Manager', image: teamImage },
-    { name: 'Dal Thang', role: 'Lead', image: dal },
+    { name: 'Juni Saw Sawm', role: 'Manager', image: teamImage }
   ]
 
   const zollTeam = [
     { name: 'Mung No', role: 'Manager', image: mungno },
+    { name: 'San Shalom', role: 'Assistant', image: teamImage }
   ]
 
   const creativeTeam = [
-    { name: 'Tung Pi', role: 'Manager', image: teamImage },
-    { name: 'Sang Nu', role: 'Lead', image: teamImage },
+    { name: 'Tung Pi', role: 'Manager', image: teamImage }
   ]
 
   const financeCommittee = [
-    { name: 'Niang Hoih', role: 'Manager', image: teamImage },
-    { name: 'Khai Boih', role: 'Fundraising Project Lead', image: teamImage },
-    { name: 'Muan Kim', role: 'Payroll & Taxes Specialist', image: muankim },
-    { name: 'Nuam Boih', role: 'Treasurer Lead', image: teamImage },
-    { name: 'Nua Nuam', role: 'Accountant Lead', image: teamImage },
+    { name: 'Niang Hoih', role: 'Manager', image: teamImage }
   ];
 
   const hrCommittee = [
     { name: 'Dal Thang', role: 'Manager', image: dal },
-    { name: 'Mary Siam', role: 'Assistant', image: marysiam },
-    { name: 'Dim Nem', role: 'Work Hour Lead', image: teamImage },
+    { name: 'Mary Siam', role: 'Assistant', image: marysiam }
   ];
 
   return (
@@ -96,7 +82,7 @@ const page: React.FC = () => {
               <div>
                 <p className="text-l underline font-semibold mb-2">Zomi Picing</p>
                 <ul className="list-disc list-inside space-y-2">
-                  {missionPoints.map((point, index) => (
+                  {missionPointsZomiPicing.map((point, index) => (
                     <li key={index} className="text-lg">{point}</li>
                   ))}
                 </ul>
@@ -104,7 +90,7 @@ const page: React.FC = () => {
               <div>
                 <p className="text-l underline font-semibold mb-2">Siamsin Picing</p>
                 <ul className="list-disc list-inside space-y-2">
-                  {additionalPoints.map((point, index) => (
+                  {missionPointsSiamsinPicing.map((point, index) => (
                     <li key={index} className="text-lg">{point}</li>
                   ))}
                 </ul>
@@ -139,7 +125,7 @@ const page: React.FC = () => {
       <section className="py-8 bg-gray-100">
         <div className='max-w-4xl mx-auto px-4'>
           <h1 className="text-3xl font-bold mb-4 text-center">Our Leadership Team</h1>
-          <p className="text-lg text-gray-700 mb-4">YD’s Leadership Team is comprised of the Office of the Director, a Management Team, and a Committee Chair. We also have an auxiliary branch which acts to provide additional support as needed. Together, our Leadership Team support and empower all members of YD to succeed in their activities.​</p>
+          <p className="text-lg text-gray-700 mb-4">YD’s Leadership Team is comprised of the Office of the Director, a Management Team, and committees. We also have an auxiliary branch which acts to provide additional support as needed. Together, our Leadership Team support and empower all members of YD to succeed in their activities.​</p>
           <AvatarCards 
             title="Office of the Director" 
             team={officeOfDirector} 
