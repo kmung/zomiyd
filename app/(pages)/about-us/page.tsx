@@ -77,25 +77,7 @@ const page: React.FC = () => {
         <div className='max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8'>
           <div>
             <h1 className="text-3xl font-bold mb-4">Our Mission</h1>
-            <p className="text-lg font-semibold mb-4">At <strong>Zomi Youth Development</strong>, our mission is to educate and empower Zomi youths around the world. We aim to provide age-appropriate education and inspire meaningful extracurricular involvement within Zomi communities. We believe in nurturing well-rounded individuals who are not only academically prepared but also socially responsible and community-minded.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <p className="text-l underline font-semibold mb-2">Zomi Picing</p>
-                <ul className="list-disc list-inside space-y-2">
-                  {missionPointsZomiPicing.map((point, index) => (
-                    <li key={index} className="text-lg">{point}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p className="text-l underline font-semibold mb-2">Siamsin Picing</p>
-                <ul className="list-disc list-inside space-y-2">
-                  {missionPointsSiamsinPicing.map((point, index) => (
-                    <li key={index} className="text-lg">{point}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <p className="text-lg font-semibold mb-4">At <strong>Zomi Youth Development</strong>, our mission is to educate and empower Zomi youths around the world. We aim to provide age-appropriate education and inspire meaningful extracurricular involvement within Zomi communities. We believe in nurturing well-rounded individuals who are not only academically prepared but also socially responsible and community-minded.</p>  
           </div>
           <div>
             <Image 
@@ -104,6 +86,24 @@ const page: React.FC = () => {
               className="w-full h-auto rounded-lg shadow-md"
             />
           </div>
+          <div>
+              <p className="text-l underline font-semibold mb-2">Zomi Picing</p>
+              <p className='font-light italic mb-2'>Raising the Next Generation of Change-Makers</p>
+              <ul className="list-disc list-inside space-y-2">
+                {missionPointsZomiPicing.map((point, index) => (
+                  <li key={index} className="text-lg">{point}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-l underline font-semibold mb-2">Siamsin Picing</p>
+              <p className='font-light italic mb-2'>Fostering Knowledge and Lifelong Learning</p>
+              <ul className="list-disc list-inside space-y-2">
+                {missionPointsSiamsinPicing.map((point, index) => (
+                  <li key={index} className="text-lg">{point}</li>
+                ))}
+              </ul>
+            </div>
         </div>
       </section>
       <section className="py-8 bg-blue-secondary text-white">
