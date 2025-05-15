@@ -8,7 +8,7 @@ import Image from 'next/image';
 import dal from '@/public/images/teams/dal.jpeg';
 import khaiboih from '@/public/images/teams/khai_boih.jpeg';
 import marysiam from '@/public/images/teams/mary_siam.png';
-import muankim from '@/public/images/teams/muan_kim.jpeg';
+//import muankim from '@/public/images/teams/muan_kim.jpeg';
 import mungno from '@/public/images/teams/mungno.jpeg';
 import siamnu from '@/public/images/teams/siam_nu.jpeg';
 
