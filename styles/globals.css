@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  text-rendering: optimizeLegibility;
+}
+
 body {
   @apply font-sans;
   scroll-behavior: smooth;
