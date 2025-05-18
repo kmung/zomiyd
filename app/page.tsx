@@ -1,4 +1,5 @@
-
+import { Suspense } from "react";
+//
 import Image from "next/image";
 import Link from "next/link";
 import Hero from "./components/Hero";
@@ -19,6 +20,7 @@ interface Program {
 }
 
 export default function Home() {
+  // TODO: load the theme song from strapi
   const themeSongYoutubeLink = 'https://www.youtube.com/embed/PLuHDYufJRM?si=VeGebn5-6uru1Ns5';
 
   const counters: Counter[] = [
@@ -37,9 +39,13 @@ const programs: Program[] = [
     <main>
       <Hero />
       <section id="video-section" className='py-8'>
-        <div className='container mx-auto'>
+        { // TODO: add a loading skeleton to the suspense fallback
+        }
+        <Suspense fallback={<p>Loading video...</p>}>
+          <div className='container md:w-2/3 lg:w-1/2 mx-auto'>
             <VideoBox src={themeSongYoutubeLink}/>
-        </div>
+          </div>
+        </Suspense>
       </section>
       <AnimateCounters counters={counters} />
       <section className="bg-blue-secondary text-white py-8">
