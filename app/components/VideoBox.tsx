@@ -1,3 +1,6 @@
+// TODO: fetch video data asynchronously from strapi
+// TODO: set the video data to be dynamic, as a content model like homepage_video
+
 interface VideoBoxProps {
     src: string;
 }
@@ -12,6 +15,7 @@ const VideoBox = ({ src}: VideoBoxProps) => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                    loading="lazy"
                 ></iframe>
             </div>
         </div>
