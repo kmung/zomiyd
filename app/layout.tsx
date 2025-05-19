@@ -6,7 +6,7 @@ import { Poppins } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Zomi Youth Development",
-  description: "Zomi YD development with Next.JS",
+  description: "Zomi Picing | Siamsin Picing!"
 };
 
 const poppins = Poppins({
