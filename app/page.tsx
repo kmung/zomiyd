@@ -39,8 +39,7 @@ const programs: Program[] = [
     <main>
       <Hero />
       <section id="video-section" className='py-8'>
-        { // TODO: add a loading skeleton to the suspense fallback
-        }
+        { /* TODO: add a loading skeleton to the suspense fallback */}
         <Suspense fallback={<p>Loading video...</p>}>
           <div className='container md:w-2/3 lg:w-1/2 mx-auto'>
             <VideoBox src={themeSongYoutubeLink}/>

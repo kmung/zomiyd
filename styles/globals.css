@@ -19,3 +19,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+/*
+@theme {  --text-tiny: 0.625rem; }
+*/
