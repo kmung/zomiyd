@@ -2,7 +2,7 @@ import coverImage from '@/public/images/img3.jpg';
 import volunteerImage from '@/public/images/volunteers.jpg';
 import officeImage from '@/public/images/office.jpg';
 import Image from 'next/image';
-import Cover from '@/app/components/Cover';
+import Cover from '@/components/Cover';
 
 const page: React.FC = () => {
   const programs = [
