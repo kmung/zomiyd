@@ -2,11 +2,11 @@ import { Suspense } from "react";
 //
 import Image from "next/image";
 import Link from "next/link";
-import Hero from "./components/Hero";
-import VideoBox from "./components/VideoBox";
+import Hero from "@/components/Hero";
+import VideoBox from "@/components/VideoBox";
 import AboutUsImg from "@/public/images/img4.png";
 import ProgramImg from "@/public/images/volunteers.jpg";
-import AnimateCounters from "./components/AnimateCounter";
+import AnimateCounters from "@/components/AnimateCounter";
 
 interface Counter {
   end: number;
