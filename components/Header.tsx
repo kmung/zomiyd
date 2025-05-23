@@ -8,13 +8,35 @@ import logoNoBg from '@/public/images/yd_logo-nobg.png';
 const Header: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [headerVisible, setHeaderVisible] = useState(true);
 
     useEffect(() => {
+        // Initialize lastScrollY with window.scrollY after component mounts
+        setLastScrollY(window.scrollY);
+
         const handleScroll = () => {
-            if (window.scrollY > 20) {
+            const currentScrollY = window.scrollY;
+            const screenWidth = window.innerWidth;
+
+            if (currentScrollY > 20) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
+            }
+
+            if (screenWidth < 768) { // md breakpoint
+                if (currentScrollY > lastScrollY && currentScrollY > 20) {
+                    setHeaderVisible(false);
+                } else {
+                    setHeaderVisible(true);
+                }
+            } else {
+                setHeaderVisible(true);
+            }
+
+            if (currentScrollY >= 0) { // Ensure lastScrollY is not negative
+                setLastScrollY(currentScrollY);
             }
         };
 
@@ -22,14 +44,14 @@ const Header: React.FC = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [lastScrollY]); // Add lastScrollY to dependency array to ensure it's updated correctly
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
     return (
-        <header className={`w-full fixed top-0 z-20 shadow-lg ${scrolled ? 'bg-blue-secondary bg-opacity-85' : 'bg-blue-secondary bg-opacity-15'} transition-colors duration-400`}>
+        <header className={`w-full fixed top-0 z-20 shadow-lg ${scrolled ? 'bg-blue-secondary bg-opacity-85' : 'bg-blue-secondary bg-opacity-15'} transition-all duration-300 ${headerVisible ? 'translate-y-0' : '-translate-y-full'}`}>
             <div className='flex items-center justify-between px-6 py-3'>
                 <div className='bg-white flex items-center p-2 rounded-md shadow-md relative lg:absolute lg:-bottom-24 lg:left-6 transform transition-transform duration-300 hover:scale-105'>
                     <Link href='/'>
