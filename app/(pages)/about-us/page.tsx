@@ -1,10 +1,10 @@
+import Cover from '@/components/Cover';
+import AvatarCards from '@/components/AvatarCards';
+import Image from 'next/image';
 import missionImage from '@/public/images/mission.jpg';
 import visionImage from '@/public/images/vision.jpg';
 import coverImage from '@/public/images/yd_texas1.jpg';
 import teamImage from '@/public/images/team.jpg';
-import Cover from '@/components/Cover';
-import AvatarCards from '@/components/AvatarCards';
-import Image from 'next/image';
 import dal from '@/public/images/teams/dal.jpeg';
 import khaiboih from '@/public/images/teams/khai_boih.jpeg';
 import marysiam from '@/public/images/teams/mary_siam.png';
@@ -125,7 +125,7 @@ const page: React.FC = () => {
       <section className="py-8 bg-gray-100">
         <div className='max-w-4xl mx-auto px-4'>
           <h1 className="text-3xl font-bold mb-4 text-center">Our Leadership Team</h1>
-          <p className="text-lg text-gray-700 mb-4">YD’s Leadership Team is comprised of the Office of the Director, a Management Team, and committees. We also have an auxiliary branch which acts to provide additional support as needed. Together, our Leadership Team support and empower all members of YD to succeed in their activities.​</p>
+          <p className="text-lg text-gray-700 mb-4">YD’s Leadership Team is comprised of the Office of the Director, department leaders, and committees. Together, our Leadership Team support and empower all members of YD to succeed in their activities.​</p>
           <AvatarCards 
             title="Office of the Director" 
             team={officeOfDirector} 
