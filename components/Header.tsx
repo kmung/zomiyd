@@ -62,6 +62,7 @@ const Header: React.FC = () => {
                             width={160}
                             height={160}
                             className= 'h-10 w-10 md:h-20 md:w-24 lg:h-36 lg:w-36 transition-transform duration-300'
+                            priority
                         />
                     </Link>
                 </div>
