@@ -1,24 +1,34 @@
-'use client';
+// 'use client';
+
+import Image from "next/image";
 
 import HeroCoverImg from "@/public/images/herocover.png";
+import ScrollNextSectionBtn from "./ScrollNextSectionBtn";
 
 export default function Hero() {
 
-    const scrollToNextSection = () => {
-        document.getElementById('video-section')?.scrollIntoView({ behavior: 'smooth' });
-    };
-
     return (
-        <div className="relative z-10 text-white h-screen flex flex-col items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${HeroCoverImg.src})`}}>
-        <div className="text-center max-w-2xl">
+        <div className="relative h-screen flex items-center justify-center">
+        
+        {/* Background Image */}
+        <Image
+            src={HeroCoverImg}
+            alt="Hero Cover"
+            className="absolute inset-0 object-cover w-full h-full"
+            priority
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center text-white max-w-2xl">
             <h1 className="text-4xl font-bold mb-4">Welcome to Zomi YD</h1>
             <h2 className="text-2xl mb-4">Zomi Picing | Siamsin Picing</h2>
         </div>
-        <button onClick={scrollToNextSection} className="absolute bottom-10 animate-bounce shadow-lg text-white focus:outline-none bg-blue-secondary rounded-full p-2">
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-        </button>
+
+        {/* Scroll Down Button */}
+        <ScrollNextSectionBtn targetId="video-section" />
       </div>
     );
 }

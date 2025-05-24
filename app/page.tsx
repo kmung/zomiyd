@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-//
 import Image from "next/image";
 import Link from "next/link";
+//
 import Hero from "@/components/Hero";
 import VideoBox from "@/components/VideoBox";
 import AboutUsImg from "@/public/images/img4.png";
