@@ -1,6 +1,6 @@
 // app/(pages)/donate/page.tsx
 import DonationForm from '@/components/donation/DonationForm';
-import StripeProvider from './StripeProviderRenderer';
+import StripeElementRenderer from './StripeElementRenderer';
 import Cover from '@/components/Cover';
 import coverImage from '@/public/images/herocover.png';
 
@@ -23,9 +23,9 @@ const DonatePage: React.FC = () => {
             Your generous contribution helps us empower Zomi youths worldwide. Thank you for your support!
           </p>
           {/* Wrap DonationForm with Elements provider */}
-          <StripeProvider stripePromise={stripePromise}>
+          <StripeElementRenderer stripePromise={stripePromise}>
             <DonationForm />
-          </StripeProvider>
+          </StripeElementRenderer>
         </div>
       </main>
     </div>

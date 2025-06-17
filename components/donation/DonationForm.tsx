@@ -147,7 +147,7 @@ const DonationForm: React.FC = () => {
       )}
       <div>
         <h2 className="text-xl font-semibold mb-3 text-gray-700">1. Choose Donation Amount</h2>
-        <DonationAmountInput onAmountChange={handleAmountChange} currency="USD" />
+        <DonationAmountInput onAmountChange={handleAmountChange} currency="$" />
       </div>
       <div>
         <h2 className="text-xl font-semibold mb-3 text-gray-700">2. Your Information</h2>
