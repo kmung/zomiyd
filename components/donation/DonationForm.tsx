@@ -1,7 +1,7 @@
 // components/DonationForm.tsx
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import DonationAmountInput from './DonationAmountInput';
 import DonorInfoInput from './DonorInfoInput';
 import StripeCardInput from './StripeCardInput'; // This contains the Elements provider

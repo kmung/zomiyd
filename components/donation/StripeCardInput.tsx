@@ -1,7 +1,6 @@
 // components/donation/StripeCardInput.tsx
 'use client';
 
-import React from 'react';
 import { CardElement } from '@stripe/react-stripe-js';
 
 const cardElementOptions = {
