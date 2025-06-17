@@ -8,7 +8,7 @@ interface StripeProviderProps {
     children: React.ReactNode;
 }
 
-const StripeProvider: React.FC<StripeProviderProps> = ({ stripePromise, children }) => {
+const StripeElementRenderer: React.FC<StripeProviderProps> = ({ stripePromise, children }) => {
     return (
         <Elements stripe={stripePromise}>
             {children}
@@ -16,4 +16,4 @@ const StripeProvider: React.FC<StripeProviderProps> = ({ stripePromise, children
     );
 };
 
-export default StripeProvider;
+export default StripeElementRenderer;
