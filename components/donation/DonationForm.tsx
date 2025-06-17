@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import DonationAmountInput from './DonationAmountInput';
 import DonorInfoInput from './DonorInfoInput';
-import StripeElementsWrapper from './StripeElementsWrapper'; // This contains the Elements provider
+import StripeCardInput from './StripeCardInput'; // This contains the Elements provider
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 
 const DonationForm: React.FC = () => {
@@ -155,7 +155,7 @@ const DonationForm: React.FC = () => {
       </div>
       <div>
         <h2 className="text-xl font-semibold mb-3 text-gray-700">3. Payment Details</h2>
-        <StripeElementsWrapper />
+        <StripeCardInput />
       </div>
       <button
         type="submit"
