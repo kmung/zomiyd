@@ -1,6 +1,6 @@
 // app/(pages)/donate/page.tsx
 import React from 'react';
-import DonationForm from '@/components/DonationForm';
+import DonationForm from '@/components/donation/DonationForm';
 import Cover from '@/components/Cover'; // Optional: for a consistent page header
 // You might want to add a specific cover image for the donation page
 import coverImage from '@/public/images/herocover.png'; // Placeholder, replace with a relevant image
