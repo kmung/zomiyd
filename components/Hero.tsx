@@ -25,6 +25,9 @@ export default function Hero() {
         <div className="relative z-10 text-center text-white max-w-2xl">
             <h1 className="text-4xl font-bold mb-4">Welcome to Zomi YD</h1>
             <h2 className="text-2xl mb-4">Zomi Picing | Siamsin Picing</h2>
+            <button className="bg-pink-secondary text-white px-6 py-3 rounded-lg hover:bg-pink-primary transition-colors">
+                <a href="/donate">Donate</a>
+            </button>
         </div>
 
         {/* Scroll Down Button */}
