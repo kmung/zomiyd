@@ -1,6 +1,5 @@
 /* stripe helper functions */
 
-// lib/stripe.ts
 import Stripe from 'stripe';
 
 let stripe: Stripe | null = null;
