@@ -1,14 +1,14 @@
 // app/(pages)/donate/page.tsx
-import DonationForm from '@/components/donation/DonationForm'; // Corrected path
+import DonationForm from '@/components/donation/DonationForm';
+import StripeProvider from './StripeProviderRenderer';
 import Cover from '@/components/Cover';
 import coverImage from '@/public/images/herocover.png';
 
 // Import Stripe libraries
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
 
 // Load your publishable key from environment variables
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'your_stripe_publishable_key_here_backup'); // Added a backup key just in case
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'no_key_here_fool'); // Added a backup key just in case
 
 const DonatePage: React.FC = () => {
   return (
@@ -23,9 +23,9 @@ const DonatePage: React.FC = () => {
             Your generous contribution helps us empower Zomi youths worldwide. Thank you for your support!
           </p>
           {/* Wrap DonationForm with Elements provider */}
-          <Elements stripe={stripePromise}>
+          <StripeProvider stripePromise={stripePromise}>
             <DonationForm />
-          </Elements>
+          </StripeProvider>
         </div>
       </main>
     </div>
