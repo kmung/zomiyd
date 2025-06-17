@@ -1,5 +1,4 @@
 // components/DonorInfoInput.tsx
-import React from 'react';
 
 interface DonorInfoInputProps {
   name: string;

@@ -1,5 +1,5 @@
 // components/DonationAmountInput.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 interface DonationAmountInputProps {
   onAmountChange: (amount: number | null) => void;
