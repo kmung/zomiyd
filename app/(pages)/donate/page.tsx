@@ -1,5 +1,4 @@
 // app/(pages)/donate/page.tsx
-import React from 'react';
 import DonationForm from '@/components/donation/DonationForm'; // Corrected path
 import Cover from '@/components/Cover';
 import coverImage from '@/public/images/herocover.png';
