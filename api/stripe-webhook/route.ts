@@ -1,7 +1,7 @@
 // app/api/stripe-webhook/route.ts
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { getStripe } from '@/lib/stripe'; // Using the shared Stripe instance
+import { getStripe } from '@/utils/stripe'; // Using the shared Stripe instance
 
 // Note: bodyParser: false is not configured this way in App Router.
 // We'll read the raw body for Stripe signature verification.
