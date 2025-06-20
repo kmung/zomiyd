@@ -78,7 +78,7 @@ const DonationForm: React.FC = () => {
         },
         body: JSON.stringify({
           amount: amount,
-          currency: 'usd', // Or your desired currency
+          currency: 'usd',
           donorName: name,
           donorEmail: email,
         }),
@@ -132,7 +132,7 @@ const DonationForm: React.FC = () => {
         <svg className="w-16 h-16 mx-auto mb-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         <h2 className="text-2xl font-semibold text-green-600 mb-4">Thank You for Your Donation!</h2>
         <p className="text-gray-700">We appreciate your generous support for Zomi Youth Development.</p>
-        <p className="text-gray-600 mt-2">A confirmation for your donation of ${amount} will be sent to {email} shortly (actual email functionality depends on webhook setup).</p>
+        <p className="text-gray-600 mt-2">A confirmation for your donation of ${amount} will be sent to {email} shortly.</p>
       </div>
     );
   }
