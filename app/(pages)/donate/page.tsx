@@ -8,7 +8,7 @@ import coverImage from '@/public/images/herocover.png';
 import { loadStripe } from '@stripe/stripe-js';
 
 // Load your publishable key from environment variables
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'no_key_here_fool'); // Added a backup key just in case
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY || 'no_key_here_fool'); // Added a backup key just in case
 
 const DonatePage: React.FC = () => {
   return (
