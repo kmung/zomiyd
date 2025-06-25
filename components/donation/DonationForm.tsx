@@ -119,9 +119,13 @@ const DonationForm: React.FC = () => {
         setProcessing(false);
       }
 
-    } catch (err: any) {
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "An error occurred during the donation process.");
+      } else {
+        setError("An unknown error occurred.");
+      }
       console.error("Donation Form Error:", err);
-      setError(err.message || "An error occurred during the donation process.");
       setProcessing(false);
     }
   };
