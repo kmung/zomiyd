@@ -8,7 +8,9 @@ type NewsletterAttributes = {
   title: string;
   content: string; // Assuming a 'content' field for the main body
   // Add other relevant fields like 'author', 'publication_date', etc.
-  [key: string]: any; // Allow other attributes
+  author?: string;
+  publication_date?: string;
+  // Add more fields as needed based on your data structure
 };
 
 type Newsletter = {
