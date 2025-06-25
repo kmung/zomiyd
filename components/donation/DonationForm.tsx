@@ -132,7 +132,21 @@ const DonationForm: React.FC = () => {
         <svg className="w-16 h-16 mx-auto mb-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         <h2 className="text-2xl font-semibold text-green-600 mb-4">Thank You for Your Donation!</h2>
         <p className="text-gray-700">We appreciate your generous support for Zomi Youth Development.</p>
+        <button
+          onClick={() => {
+            // Reset form for another donation
+            setAmount(null);
+            setName('');
+            setEmail('');
+            setProcessing(false);
+            setError(null);
+            setPaymentSuccess(false);
+          }}
+          className="mt-6 px-6 py-3 bg-blue-primary text-white font-semibold rounded-md hover:bg-blue-dark focus:outline-none focus:ring-2 focus:ring-blue-primary focus:ring-opacity-50 transition-colors duration-150 ease-in-out"
+        >Donate Again</button>
+        { /* TODO: implement email sending on server-side webhook
         <p className="text-gray-600 mt-2">A confirmation for your donation of ${amount} will be sent to {email} shortly.</p>
+        */ }
       </div>
     );
   }
@@ -147,7 +161,7 @@ const DonationForm: React.FC = () => {
       )}
       <div>
         <h2 className="text-xl font-semibold mb-3 text-gray-700">1. Choose Donation Amount</h2>
-        <DonationAmountInput onAmountChange={handleAmountChange} currency="$" />
+        <DonationAmountInput onAmountChange={handleAmountChange} currency="USD" />
       </div>
       <div>
         <h2 className="text-xl font-semibold mb-3 text-gray-700">2. Your Information</h2>
