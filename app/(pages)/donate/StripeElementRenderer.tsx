@@ -1,7 +1,7 @@
 'use client';
 
 import { Elements } from '@stripe/react-stripe-js';
-import { Stripe, loadStripe } from '@stripe/stripe-js'; // Import loadStripe here
+import { loadStripe } from '@stripe/stripe-js'; // Import loadStripe here
 import { useEffect, useState, useMemo } from 'react';
 
 interface StripeElementRendererProps {

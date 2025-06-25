@@ -7,7 +7,8 @@ type NewsletterAttributes = {
   slug: string;
   title: string;
   // Add other relevant fields like 'excerpt', 'publication_date', etc.
-  [key: string]: any; // Allow other attributes
+  author?: string;
+  publication_date?: string;
 };
 
 type Newsletter = {
