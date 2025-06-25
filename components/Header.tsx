@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import logoNoBg from '@/public/images/yd_logo-nobg.png';
@@ -62,6 +62,7 @@ const Header: React.FC = () => {
                             width={160}
                             height={160}
                             className= 'h-10 w-10 md:h-20 md:w-24 lg:h-36 lg:w-36 transition-transform duration-300'
+                            priority
                         />
                     </Link>
                 </div>
@@ -82,6 +83,7 @@ const Header: React.FC = () => {
                     <Link href='/' className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-white text-blue-primary' : 'bg-blue-primary text-white'}`}>Home</Link>
                     <Link href='/about-us' className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-white text-blue-primary' : 'bg-blue-primary text-white'}`}>About Us</Link>
                     <Link href='/what-we-do' className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-white text-blue-primary' : 'bg-blue-primary text-white'}`}>What We Do</Link>
+                    <Link href='/donate' className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-pink-secondary text-blue-primary' : 'bg-pink-primary text-white'}`}>Donate</Link>
                 </nav>
             </div>
             {menuOpen && (
@@ -90,6 +92,7 @@ const Header: React.FC = () => {
                         <Link href='/' onClick={toggleMenu} className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-sky-800 text-white' : 'bg-white text-sky-800'}`}>Home</Link>
                         <Link href='/about-us' onClick={toggleMenu} className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-sky-800 text-white' : 'bg-white text-sky-800'}`}>About Us</Link>
                         <Link href='/what-we-do' onClick={toggleMenu} className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-sky-800 text-white' : 'bg-white text-sky-800'}`}>What We Do</Link>
+                        <Link href='/donate' onClick={toggleMenu} className={`px-4 py-2 rounded-md shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105 ${scrolled ? 'bg-pink-secondary text-blue-primary' : 'bg-pink-primary text-white'}`}>Donate</Link>
                     </nav>
                 </div>
             )}

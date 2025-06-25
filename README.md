@@ -91,3 +91,16 @@ Go to the repository on GitHub and you will see a prompt to create a pull reques
 - tsconfig.json: TypeScript configuration file.
 - postcss.config.mjs: PostCSS configuration file.
 - .eslintrc.json: ESLint configuration file.
+
+## Environment Variables
+
+To connect this Next.js application to your Strapi instance, you need to configure environment variables.
+
+1.  Create a new file named `.env.local` in the root of your project.
+2.  Copy the contents of `.env.example` into `.env.local`.
+3.  Modify the variables in `.env.local` to point to your Strapi API:
+
+    - `NEXT_PUBLIC_STRAPI_URL`: The full base URL for your Strapi API
+    - `STRAPI_API_TOKEN` (Optional): If your Strapi API requires an authentication token to access the newsletter content, provide it here. Note that the current code in `lib/api.ts` does not yet use this token, but it can be added if needed.
+
+Make sure `.env.local` is included in your `.gitignore` file to prevent committing sensitive information.
