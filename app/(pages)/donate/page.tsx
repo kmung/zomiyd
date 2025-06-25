@@ -4,11 +4,17 @@ import StripeElementRenderer from './StripeElementRenderer';
 import Cover from '@/components/Cover';
 import coverImage from '@/public/images/herocover.png';
 
-// Import Stripe libraries
-import { loadStripe } from '@stripe/stripe-js';
-
 // Load your publishable key from environment variables
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY || 'no_key_here_fool'); // Added a backup key just in case
+const publishableKeyFromEnv = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+const fallbackKey = 'no_key_here_fool'; // This should ideally be a valid test key if used, or handle error more gracefully
+
+const actualKeyToUse = publishableKeyFromEnv || fallbackKey;
+
+if (!publishableKeyFromEnv) {
+  console.log("DonatePage (Server): NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY was not found in env. Passing fallback key to StripeElementRenderer.");
+} else {
+  console.log(`DonatePage (Server): Passing publishableKey (length: ${actualKeyToUse.length}) to StripeElementRenderer.`);
+}
 
 const DonatePage: React.FC = () => {
   return (
@@ -22,8 +28,8 @@ const DonatePage: React.FC = () => {
           <p className="text-lg text-gray-700 mb-8 text-center">
             Your generous contribution helps us empower Zomi youths worldwide. Thank you for your support!
           </p>
-          {/* Wrap DonationForm with Elements provider */}
-          <StripeElementRenderer stripePromise={stripePromise}>
+          {/* Pass the actual key string to the client component */}
+          <StripeElementRenderer publishableKey={actualKeyToUse}>
             <DonationForm />
           </StripeElementRenderer>
         </div>

@@ -45,7 +45,7 @@ async function handler(req: Request) {
         const donorName = metadata.donorName || 'N/A';
         const donorEmail = metadata.donorEmail || 'N/A';
         
-        console.log(`Donation of ${amount / 100} ${currency.toUpperCase()} received from ${donorName} (${donorEmail}).`);
+        console.log(`Donation of ${amount / 100} ${currency.toUpperCase()} received from ${donorName} ${donorEmail}.`);
         // Business logic for successful payment:
         // - Send confirmation email
         // - Update database (e.g., mark order as paid)
