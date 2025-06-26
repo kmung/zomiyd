@@ -84,6 +84,7 @@ const DonationForm: React.FC<InnerDonationFormProps> = ({ stripePromise }) => {
         setClientSecret(data.clientSecret);
       }
     } catch (err) {
+      console.error('Error fetching client secret:', err);
       setError('Failed to initialize payment. Please check your connection.');
       setClientSecret(null);
     } finally {
