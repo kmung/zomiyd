@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import DonationAmountInput from './DonationAmountInput';
 import DonorInfoInput from './DonorInfoInput';
-import StripeCardInput from './StripeCardInput'; // This contains the Elements provider
+import StripeCardInput from './StripeCardInput';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 
 const DonationForm: React.FC = () => {

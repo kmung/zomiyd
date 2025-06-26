@@ -4,6 +4,7 @@
 import { CardElement } from '@stripe/react-stripe-js';
 
 const cardElementOptions = {
+  theme: "stripe",
   style: {
     base: {
       color: "#32325d",
@@ -18,6 +19,9 @@ const cardElementOptions = {
       color: "#fa755a",
       iconColor: "#fa755a"
     }
+  },
+  business: {
+    name: "Zomi Youth Development"
   }
 };
 
