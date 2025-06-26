@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       },
       // You can add customer creation/retrieval here if needed
       // customer: customer.id, 
-      // automatic_payment_methods: { enabled: true } // Consider enabling this
+      automatic_payment_methods: { enabled: true } // Consider enabling this
     });
 
     return NextResponse.json({ clientSecret: paymentIntent.client_secret });
