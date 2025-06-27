@@ -5,9 +5,10 @@ interface DonorInfoInputProps {
   email: string;
   onNameChange: (name: string) => void;
   onEmailChange: (email: string) => void;
+  isDisabled?: boolean;
 }
 
-const DonorInfoInput: React.FC<DonorInfoInputProps> = ({ name, email, onNameChange, onEmailChange }) => {
+const DonorInfoInput: React.FC<DonorInfoInputProps> = ({ name, email, onNameChange, onEmailChange, isDisabled }) => {
   return (
     <div className="space-y-4">
       <div>
@@ -21,6 +22,7 @@ const DonorInfoInput: React.FC<DonorInfoInputProps> = ({ name, email, onNameChan
           value={name}
           onChange={(e) => onNameChange(e.target.value)}
           required
+          disabled={isDisabled}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-primary focus:border-blue-primary sm:text-sm"
         />
       </div>
@@ -35,6 +37,7 @@ const DonorInfoInput: React.FC<DonorInfoInputProps> = ({ name, email, onNameChan
           value={email}
           onChange={(e) => onEmailChange(e.target.value)}
           required
+          disabled={isDisabled}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-primary focus:border-blue-primary sm:text-sm"
         />
       </div>
