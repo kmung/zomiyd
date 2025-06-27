@@ -4,11 +4,12 @@ import { useState } from 'react';
 interface DonationAmountInputProps {
   onAmountChange: (amount: number | null) => void;
   currency?: string;
+  isDisabled?: boolean;
 }
 
 const predefinedAmounts = [10, 25, 50, 100, 250, 500];
 
-const DonationAmountInput: React.FC<DonationAmountInputProps> = ({ onAmountChange, currency = 'USD' }) => {
+const DonationAmountInput: React.FC<DonationAmountInputProps> = ({ onAmountChange, currency = 'USD', isDisabled }) => {
   const [customAmount, setCustomAmount] = useState<string>('');
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
 
@@ -57,6 +58,7 @@ const DonationAmountInput: React.FC<DonationAmountInputProps> = ({ onAmountChang
           value={customAmount}
           onChange={handleCustomAmountChange}
           placeholder="e.g., 75"
+          disabled={isDisabled}
           className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-primary focus:border-blue-primary"
         />
       </div>
