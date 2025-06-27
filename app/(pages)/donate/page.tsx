@@ -6,7 +6,7 @@ import coverImage from '@/public/images/herocover.png';
 
 // Load your publishable key from environment variables
 const publishableKeyFromEnv = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-const fallbackKey = 'pk_test_TYooMQauvdEDq54NiTphI7jx'; // Using a common test key as fallback
+const fallbackKey = '';
 
 const actualKeyToUse = publishableKeyFromEnv || fallbackKey;
 

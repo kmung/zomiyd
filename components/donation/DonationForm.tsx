@@ -351,7 +351,7 @@ const DonationForm: React.FC<InnerDonationFormProps> = ({ stripePromise }) => {
         <DonorInfoInput name={name} email={email} onNameChange={handleNameChange} onEmailChange={handleEmailChange} isDisabled={processing && !!clientSecret} />
       </div>
 
-      {stripePromise && clientSecret && elementsOptions ? (
+      {clientSecret && elementsOptions ? (
         <Elements stripe={stripePromise} options={elementsOptions}>
           <div>
             <h2 className="text-xl font-semibold mb-3 text-gray-700">3. Payment Details</h2>
