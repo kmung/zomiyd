@@ -6,17 +6,17 @@ import Cover from '@/components/Cover';
 
 const page: React.FC = () => {
   const programs = [
-    { name: 'Youth Leadership Program', description: 'Empowering young leaders through training and mentorship.', image: volunteerImage },
-    { name: 'Community Outreach', description: 'Engaging with the community to provide support and resources.', image: volunteerImage },
-    { name: 'Educational Workshops', description: 'Offering workshops on various educational topics.', image: volunteerImage },
-    { name: 'Health and Wellness', description: 'Promoting health and wellness through various initiatives.', image: volunteerImage },
+    { name:'ELL', description: 'Helping youths improve their English language skills.', image: volunteerImage },
+    {name:'Mentorship Program', description: 'Connecting youths with mentors for personal and professional growth.', image: volunteerImage },
+    {name:'Professionsal Development', description: 'Providing resources and training for career advancement.', image: volunteerImage },
   ];
 
   const departments = [
     { name: 'Education Department', description: 'Focuses on educational programs and initiatives.', image: officeImage },
-    { name: 'Health Department', description: 'Promotes health and wellness in the community.', image: officeImage },
-    { name: 'Community Engagement', description: 'Works to engage and support the community.', image: officeImage },
-    { name: 'Leadership Development', description: 'Develops leadership skills in youth.', image: officeImage },
+    { name: 'Training Department', description: 'Provides training and development opportunities.', image: officeImage },
+    { name: 'Creative Department', description: 'Fosters creativity and innovation in projects.', image: officeImage },
+    { name: 'Research Department', description: 'Leads research and analysis to support programs.', image: officeImage },
+    { name: 'Zomi Language & Literature', description: 'Promotes the Zomi language and literature.', image: officeImage },
   ];
 
   return (
