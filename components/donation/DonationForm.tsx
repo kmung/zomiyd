@@ -124,9 +124,13 @@ const DonationForm: React.FC<InnerDonationFormProps> = ({ stripePromise }) => {
         setClientSecret(data.clientSecret);
         if (!isInitialClientSecretFetched) setIsInitialClientSecretFetched(true);
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Error fetching client secret:', err);
-      setPaymentIntentError(`Failed to initialize payment intent: ${err.message}`);
+      let errorMessage = 'Failed to initialize payment intent.';
+      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
+        errorMessage = `Failed to initialize payment intent: ${(err as any).message}`;
+      }
+      setPaymentIntentError(errorMessage);
       setClientSecret(null);
     } finally {
       setIsLoadingClientSecret(false);
