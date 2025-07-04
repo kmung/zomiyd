@@ -5,7 +5,7 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import VideoBox from "@/components/VideoBox";
 import AboutUsImg from "@/public/images/img4.png";
-import ProgramImg from "@/public/images/volunteers.jpg";
+// import ProgramImg from "@/public/images/volunteers.jpg";
 import AnimateCounters from "@/components/AnimateCounter";
 import EducationImg from "@/public/images/education_temp_img.jpg";
 import CommunityImg from "@/public/images/community_pic_yd.jpg";
