@@ -5,13 +5,19 @@ interface DonationAmountInputProps {
   onAmountChange: (amount: number | null) => void;
   currency?: string;
   isDisabled?: boolean;
+  initialAmount?: number | null;
 }
 
 const predefinedAmounts = [10, 25, 50, 100, 250, 500];
 
-const DonationAmountInput: React.FC<DonationAmountInputProps> = ({ onAmountChange, currency = 'USD', isDisabled }) => {
-  const [customAmount, setCustomAmount] = useState<string>('');
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
+const DonationAmountInput: React.FC<DonationAmountInputProps> = ({ onAmountChange, currency = 'USD', isDisabled, initialAmount = null }) => {
+  const [customAmount, setCustomAmount] = useState<string>(initialAmount && !predefinedAmounts.includes(initialAmount) ? String(initialAmount) : '');
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(initialAmount && predefinedAmounts.includes(initialAmount) ? initialAmount : null);
+
+  // Effect to set initial amount if provided and not already set
+  // This is simplified as initialAmount is now part of useState initialization.
+  // If initialAmount could change dynamically AFTER mount and you wanted to reflect that,
+  // an useEffect would be needed. For one-time initialization, useState is sufficient.
 
   const handlePredefinedAmountClick = (amount: number) => {
     setSelectedAmount(amount);
