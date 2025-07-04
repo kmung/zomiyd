@@ -5,8 +5,11 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import VideoBox from "@/components/VideoBox";
 import AboutUsImg from "@/public/images/img4.png";
-import ProgramImg from "@/public/images/volunteers.jpg";
+// import ProgramImg from "@/public/images/volunteers.jpg";
 import AnimateCounters from "@/components/AnimateCounter";
+import CommunityImg from "@/public/images/community.png";
+import EducationImg from "@/public/images/education_img.png";
+import LeadershipImg from "@/public/images/leadership_2.jpg";
 
 interface Counter {
   end: number;
@@ -30,9 +33,9 @@ export default function Home() {
   ];
 
 const programs: Program[] = [
-    { name: 'Youth Leadership Program', description: 'Empowering young leaders through training and mentorship.', image: ProgramImg },
-    { name: 'Community Outreach', description: 'Engaging with the community to provide support and resources.', image: ProgramImg },
-    { name: 'Educational Workshops', description: 'Offering workshops on various educational topics.', image: ProgramImg },
+    { name: 'Youth Leadership Program', description: 'Empowering young leaders through training and mentorship.', image: LeadershipImg },
+    { name: 'Community Outreach', description: 'Engaging with the community to provide support and resources.', image: CommunityImg },
+    { name: 'Educational Workshops', description: 'Offering workshops on various educational topics.', image: EducationImg },
   ];
 
   return (
