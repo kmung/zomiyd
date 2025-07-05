@@ -1,38 +1,51 @@
-// components/DonationAmountInput.tsx
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 
 interface DonationAmountInputProps {
   onAmountChange: (amount: number | null) => void;
   currency?: string;
   isDisabled?: boolean;
-  initialAmount?: number | null;
+  value: number | null; // Changed from initialAmount to value
 }
 
 const predefinedAmounts = [10, 25, 50, 100, 250, 500];
 
-const DonationAmountInput: React.FC<DonationAmountInputProps> = ({ onAmountChange, currency = 'USD', isDisabled, initialAmount = null }) => {
-  const [customAmount, setCustomAmount] = useState<string>(initialAmount && !predefinedAmounts.includes(initialAmount) ? String(initialAmount) : '');
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(initialAmount && predefinedAmounts.includes(initialAmount) ? initialAmount : null);
+const DonationAmountInput: React.FC<DonationAmountInputProps> = ({ onAmountChange, currency = 'USD', isDisabled, value }) => {
+  const [customAmount, setCustomAmount] = useState<string>('');
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
 
-  // Effect to set initial amount if provided and not already set
-  // This is simplified as initialAmount is now part of useState initialization.
-  // If initialAmount could change dynamically AFTER mount and you wanted to reflect that,
-  // an useEffect would be needed. For one-time initialization, useState is sufficient.
+  useEffect(() => {
+    // Sync with external value prop
+    if (value === null) {
+      setSelectedAmount(null);
+      setCustomAmount('');
+    } else if (predefinedAmounts.includes(value)) {
+      setSelectedAmount(value);
+      setCustomAmount('');
+    } else {
+      setSelectedAmount(null);
+      setCustomAmount(String(value));
+    }
+  }, [value]);
 
-  const handlePredefinedAmountClick = (amount: number) => {
-    setSelectedAmount(amount);
-    setCustomAmount('');
-    onAmountChange(amount);
+  const handlePredefinedAmountClick = (amountValue: number) => {
+    // setSelectedAmount(amountValue); // Handled by useEffect via prop change
+    // setCustomAmount(''); // Handled by useEffect
+    onAmountChange(amountValue);
   };
 
   const handleCustomAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
+    const inputValue = event.target.value;
     // Allow only numbers and a single decimal point
-    if (/^\d*\.?\d*$/.test(value)) {
-      setCustomAmount(value);
-      setSelectedAmount(null);
-      const numericValue = parseFloat(value);
+    if (/^\d*\.?\d*$/.test(inputValue)) {
+      // setCustomAmount(inputValue); // Handled by useEffect via prop change
+      // setSelectedAmount(null); // Handled by useEffect
+      const numericValue = parseFloat(inputValue);
       onAmountChange(isNaN(numericValue) ? null : numericValue);
+    } else if (inputValue === '') { // Allow clearing the input
+      // setCustomAmount(''); // Handled by useEffect
+      // setSelectedAmount(null); // Handled by useEffect
+      onAmountChange(null);
     }
   };
 
@@ -47,7 +60,8 @@ const DonationAmountInput: React.FC<DonationAmountInputProps> = ({ onAmountChang
             className={`px-4 py-3 rounded-md border text-center font-medium transition-colors
                         ${selectedAmount === amount 
                           ? 'bg-blue-primary text-white border-blue-primary' 
-                          : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
+                          : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed'}`}
+            disabled={isDisabled}
           >
             {currency}{amount}
           </button>
