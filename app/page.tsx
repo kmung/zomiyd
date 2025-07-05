@@ -7,9 +7,9 @@ import VideoBox from "@/components/VideoBox";
 import AboutUsImg from "@/public/images/img4.png";
 // import ProgramImg from "@/public/images/volunteers.jpg";
 import AnimateCounters from "@/components/AnimateCounter";
-import CommunityImg from "@/public/images/community.png";
-import EducationImg from "@/public/images/education_img.png";
-import LeadershipImg from "@/public/images/leadership_2.jpg";
+import EducationImg from "@/public/images/education_temp_img.jpg";
+import CommunityImg from "@/public/images/community_pic_yd.jpg";
+import LeadershipImg from "@/public/images/leadership_yd.jpg";
 
 interface Counter {
   end: number;

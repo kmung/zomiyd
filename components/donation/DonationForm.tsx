@@ -9,8 +9,6 @@ import {
   useElements,
 } from '@stripe/react-stripe-js';
 import { loadStripe, Stripe, StripeElementsOptions, Appearance } from '@stripe/stripe-js';
-
-// Assuming these are correctly imported from their actual paths
 import DonationAmountInput from './DonationAmountInput'; 
 import DonorInfoInput from './DonorInfoInput';
 
@@ -40,16 +38,14 @@ const DonationFormWrapper: React.FC<DonationFormProps> = ({ publishableKey }) =>
     return <div className="text-center p-4 text-yellow-600">Initializing Stripe...</div>;
   }
   
-  // Rename SimplifiedDonationForm to DonationForm internally for clarity as we add features
   return <DonationForm stripePromise={stripePromise} />;
 };
 
 
-interface InnerDonationFormProps { // Renamed from SimplifiedDonationFormProps
+interface InnerDonationFormProps {
     stripePromise: Promise<Stripe | null>;
 }
 
-// Renamed from SimplifiedDonationForm to DonationForm
 const DonationForm: React.FC<InnerDonationFormProps> = ({ stripePromise }) => {
   // Stripe and PaymentIntent states (from simplified version)
   const [stripe, setStripe] = useState<Stripe | null>(null);
@@ -127,8 +123,8 @@ const DonationForm: React.FC<InnerDonationFormProps> = ({ stripePromise }) => {
     } catch (err: unknown) {
       console.error('Error fetching client secret:', err);
       let errorMessage = 'Failed to initialize payment intent.';
-      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
-        errorMessage = `Failed to initialize payment intent: ${(err as any).message}`;
+      if (typeof err === 'object' && err !== null && 'message' in err && typeof (err as { message?: unknown }).message === 'string') {
+        errorMessage = `Failed to initialize payment intent: ${(err as { message: string }).message}`;
       }
       setPaymentIntentError(errorMessage);
       setClientSecret(null);
@@ -137,38 +133,36 @@ const DonationForm: React.FC<InnerDonationFormProps> = ({ stripePromise }) => {
     }
   }, [stripe, isInitialClientSecretFetched]);
 
-  // Effect for initial client secret fetch (e.g., with a default amount)
-  useEffect(() => {
-    if (stripe && !isInitialClientSecretFetched && !clientSecret && !paymentIntentError) {
-      // Set a default initial amount, e.g., $1. This will also set the `amount` state.
-      const initialDonationAmount = 1;
-      setAmount(initialDonationAmount); 
-      fetchClientSecret(initialDonationAmount, name, email);
-    }
-  }, [stripe, isInitialClientSecretFetched, clientSecret, paymentIntentError, name, email, fetchClientSecret]);
-
-  const handleAmountChange = (newAmount: number | null) => {
-    setAmount(newAmount);
+  // Callback for handling amount changes from DonationAmountInput or internal calls
+  const handleAmountChange = useCallback((newAmount: number | null) => {
+    setAmount(newAmount); // Update the amount state
     setAppMessage(null); // Clear messages
     if (newAmount && newAmount > 0) {
       // Fetch new client secret when amount changes
       // Pass current name and email in case they are needed for PI earlier
-      fetchClientSecret(newAmount, name, email);
+      fetchClientSecret(newAmount, name, email); // fetchClientSecret is correctly called here
     } else {
       setClientSecret(null); // Clear client secret if amount is zero or invalid
       setPaymentIntentError(null); // Clear previous PI errors
     }
-  };
-  
+  }, [name, email, fetchClientSecret]); // Dependencies for handleAmountChange
+
+  // Effect for initial client secret fetch (e.g., with a default amount)
+  useEffect(() => {
+    if (stripe && !isInitialClientSecretFetched && !clientSecret && !paymentIntentError) {
+      const initialDonationAmount = 1;
+      // Directly call handleAmountChange here to ensure fetchClientSecret logic is centralized
+      // and amount state is updated consistently.
+      handleAmountChange(initialDonationAmount);
+    }
+  }, [stripe, isInitialClientSecretFetched, clientSecret, paymentIntentError, handleAmountChange]);
+
+
   const handleChangeAmountClick = () => {
-    setAmount(null);
-    setClientSecret(null);
+    setAmount(null); // This will clear DonationAmountInput via its new `value` prop
+    setClientSecret(null); // This will hide the PaymentElement and enable DonationAmountInput
     setPaymentIntentError(null);
-    setAppMessage(null);
-    setIsInitialClientSecretFetched(false); // Allow re-fetch of initial/default PI if desired, or rely on user entering new amount
-                                        // For now, this will trigger the initial fetch logic again if all conditions met.
-                                        // Or, more simply, just wait for user to input new amount via DonationAmountInput.
-                                        // Let's keep it simple: user has to re-enter.
+    setAppMessage("Please enter a new donation amount.");
   };
 
   const handleNameChange = (newName: string) => {
@@ -444,9 +438,9 @@ const DonationForm: React.FC<InnerDonationFormProps> = ({ stripePromise }) => {
             setAppMessage(null);
             setPaymentIntentError(null);
             // Critical: allow the initial useEffect to fetch a new default clientSecret
-            setIsInitialClientSecretFetched(false); 
-            // Optionally, clear Stripe redirect URL params if any were added
-            // window.history.replaceState({}, document.title, window.location.pathname);
+            setIsInitialClientSecretFetched(false);
+            // Clear Stripe redirect URL params
+            window.history.replaceState({}, document.title, window.location.pathname + window.location.hash.split("?")[0]); // Keep existing hash if any, remove query params
           }}
           className="mt-6 px-6 py-3 bg-blue-primary text-white font-semibold rounded-md hover:bg-blue-dark focus:outline-none focus:ring-2 focus:ring-blue-primary focus:ring-opacity-50 transition-colors duration-150 ease-in-out"
         >
@@ -465,14 +459,14 @@ const DonationForm: React.FC<InnerDonationFormProps> = ({ stripePromise }) => {
           <div>
             <h2 className="text-xl font-semibold mb-3 text-gray-700">1. Choose Donation Amount</h2>
             <DonationAmountInput 
-              onAmountChange={(newAmount) => setAmount(newAmount)} // Placeholder
+              value={amount} // Controlled by DonationForm's amount state
+              onAmountChange={handleAmountChange} // Use the existing handler
               currency="USD" 
-              isDisabled={processing || isLoadingClientSecret || !!clientSecret} // Basic disabled logic for now
-              initialAmount={1} // Default initial amount
+              isDisabled={processing || isLoadingClientSecret} // Amount input enabled unless processing or loading client secret
             />
             {clientSecret && amount && amount > 0 && !processing && !isLoadingClientSecret && (
                  <button 
-                    onClick={() => { /* TODO: Implement change amount logic */ }}
+                    onClick={handleChangeAmountClick} // Implemented this handler
                     className="text-sm text-blue-600 hover:text-blue-800 mt-1"
                  >
                     Change amount
